@@ -1,42 +1,50 @@
 import javax.swing.*;
 import javax.swing.text.View;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by cmurray17 on 3/4/16.
  */
-public class ViewController {
-    private JPanel panel1;
-    private JPanel panel2;
-    private JTabbedPane tabbedPane1;
-    private JFrame frame;
-    private JLabel emptyImages;
-    private JLabel settings;
+public class ViewController implements Globals {
 
-    private ViewController()
-    {
-        panel1 = new JPanel();
-        panel2 = new JPanel();
-        tabbedPane1 = new JTabbedPane();
-        frame = new JFrame();
-        emptyImages = new JLabel("Image Library");
-        settings = new JLabel("Settings");
-    }
+    public JPanel getPanel1(){return panel1;}
 
+    public JPanel getPanel2(){return  panel2;}
+
+    public JTabbedPane getTabbedPane1(){return tabbedPane1;}
+
+    public JFrame getFrame(){return frame;}
+
+    public JLabel getEmptyImages(){return emptyImages;}
+
+    public JLabel getSettings(){return settings;}
+
+    /**
+     * Create all the GUI components of the main window
+     */
     private void createAndShowGUI()
     {
         frame.add(tabbedPane1);
         tabbedPane1.setVisible(true);
-        tabbedPane1.addTab("Images", panel1);
-        tabbedPane1.addTab("Settings", panel2);
+        tabbedPane1.add(new JScrollPane(panel1, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER), "Images");
+        tabbedPane1.add(new JScrollPane(panel2), "Settings");
+        //tabbedPane1.addTab("Images", panel1);
+        //tabbedPane1.addTab("Settings", panel2);
 
-        panel1.setLayout(new GridBagLayout());
+        panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
         panel1.setBorder(BorderFactory.createEmptyBorder());
-        panel1.add(emptyImages);
+        panel1.add(menuBar);
+        //panel1.add(emptyImages);
 
         panel2.setLayout(new GridBagLayout());
         panel2.setBorder(BorderFactory.createEmptyBorder());
         panel2.add(settings);
+        panel2.add(settingsIcon);
+
+        menuBar.add(fileMenu);
+        fileMenu.setPreferredSize(new Dimension(75, 35));
+        fileMenu.add(changeDir);
 
         frame.setVisible(true);
         frame.setPreferredSize(new Dimension(750, 500));
@@ -44,9 +52,26 @@ public class ViewController {
         frame.pack();
     }
 
-    public static void main(String[] args)
+    /**
+     * add the list of jlabels to the window
+     * @param fileNames
+     */
+    public void createGUIFileList(ArrayList<String> fileNames)
     {
-        ViewController window = new ViewController();
+        ImageIcon icon = new ImageIcon("/Icons/pic_icon.png");
+        for (String s: fileNames)
+        {
+            panel1.add(new JLabel(s + " ", icon, JLabel.LEFT));
+        }
+    }
+
+    public ViewController getWindow()
+    {
+        return window;
+    }
+
+    public void main()
+    {
         window.createAndShowGUI();
     }
 }
