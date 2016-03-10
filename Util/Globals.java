@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.io.File;
-import java.nio.file.Files;
+//import java.nio.file.Files;
 import java.util.ArrayList;
 
 /**
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public interface Globals
 {
     JPanel panel1 = new JPanel();
+    JPanel overpanel = new JPanel();
     JPanel panel2 = new JPanel();
     JTabbedPane tabbedPane1 = new JTabbedPane();
     JFrame frame = new JFrame();

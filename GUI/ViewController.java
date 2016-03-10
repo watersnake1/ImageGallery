@@ -20,11 +20,14 @@ public class ViewController implements Globals {
 
     public JLabel getSettings(){return settings;}
 
+    public JPanel getOverPanel(){return overpanel;}
+
     /**
      * Create all the GUI components of the main window
      */
     private void createAndShowGUI()
     {
+        frame.add(menuBar);
         frame.add(tabbedPane1);
         tabbedPane1.setVisible(true);
         tabbedPane1.add(new JScrollPane(panel1, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER), "Images");
@@ -34,7 +37,7 @@ public class ViewController implements Globals {
 
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
         panel1.setBorder(BorderFactory.createEmptyBorder());
-        panel1.add(menuBar);
+        //panel1.add(menuBar);
         //panel1.add(emptyImages);
 
         panel2.setLayout(new GridBagLayout());
@@ -45,6 +48,9 @@ public class ViewController implements Globals {
         menuBar.add(fileMenu);
         fileMenu.setPreferredSize(new Dimension(75, 35));
         fileMenu.add(changeDir);
+
+        System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Files");
+
 
         frame.setVisible(true);
         frame.setPreferredSize(new Dimension(750, 500));
