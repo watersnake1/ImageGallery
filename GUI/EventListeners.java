@@ -15,14 +15,13 @@ public class EventListeners implements Globals
             public void actionPerformed(ActionEvent e) {
                 String path = JOptionPane.showInputDialog("enter the new directory path");
                 File newPath = new File(path);
-                while (!newPath.isDirectory())
-                {
-                    JOptionPane.showMessageDialog(panel1, path + " is not a directory");
-                    path = JOptionPane.showInputDialog("enter the new directory path");
-                }
+                JOptionPane.showMessageDialog(panel1, path + " is not a directory");
+                path = JOptionPane.showInputDialog("enter the new directory path");
+                //System.out.print(path);
                 loader.setPath(path);
                 window.createGUIFileList(loader.createTextFileList());
                 panel1.updateUI();
+                tabbedPane1.updateUI();
             }
         });
     }

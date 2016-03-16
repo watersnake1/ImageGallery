@@ -42,11 +42,12 @@ public class ViewController implements Globals {
 
         panel2.setLayout(new GridBagLayout());
         panel2.setBorder(BorderFactory.createEmptyBorder());
+        panel2.add(menuBar);
         panel2.add(settings);
         panel2.add(settingsIcon);
 
         menuBar.add(fileMenu);
-        fileMenu.setPreferredSize(new Dimension(75, 35));
+        //fileMenu.setPreferredSize(new Dimension(75, 35));
         fileMenu.add(changeDir);
 
         System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Files");
@@ -59,7 +60,7 @@ public class ViewController implements Globals {
     }
 
     /**
-     * add the list of jlabels to the window
+     * add the list of jlabels to the window, the icon does not load
      * @param fileNames
      */
     public void createGUIFileList(ArrayList<String> fileNames)

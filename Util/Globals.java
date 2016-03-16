@@ -22,4 +22,5 @@ public interface Globals
     JMenuBar menuBar = new JMenuBar();
     JMenu fileMenu = new JMenu("File");
     JMenuItem changeDir = new JMenuItem("Change Directory...");
+
 }
