@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="FileExplore">
+    <output-path>$PROJECT_DIR$/out/artifacts/FileExplore</output-path>
+    <root id="archive" name="FileExplore.jar" />
+  </artifact>
+</component>

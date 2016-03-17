@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
- * Created by Carol on 3/6/16. This class is being weird it wont recognize any directory
+ * Created by Christian on 3/6/16. This class is being weird it wont recognize any directory
  */
 public class EventListeners implements Globals
 {
